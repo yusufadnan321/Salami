@@ -360,7 +360,6 @@ export default function Home() {
       {showVideoPopup && (
         <div className="fixed inset-0 z-[97] bg-slate-950/90 backdrop-blur-sm flex items-center justify-center px-4">
           <div className="w-full max-w-2xl rounded-2xl border border-slate-700/60 bg-slate-900 p-4 md:p-5 shadow-2xl">
-            <h3 className="text-lg md:text-xl font-bold text-white mb-3 text-center">ভিডিও</h3>
             <video
               src={paymentVideoSrc}
               className="w-full max-h-[70vh] rounded-xl bg-black"
