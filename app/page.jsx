@@ -69,10 +69,7 @@ export default function Home() {
     setTrackIndex((prev) => (prev + 1) % audioTracks.length)
   }
 
-  const isPaymentSelected = selectedPayment !== null
-
   const handleNextClick = () => {
-    if (!isPaymentSelected) return
     setShowPaymentPopup(true)
   }
 
@@ -239,18 +236,17 @@ export default function Home() {
           )}
 
           {/* Next Button */}
-          <button
-            disabled={!isPaymentSelected}
-            onClick={handleNextClick}
-            className={`w-full text-white font-bold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2 group ${
-              isPaymentSelected
-                ? 'bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700'
-                : 'bg-slate-600/60 cursor-not-allowed opacity-60'
-            }`}
-          >
-            পরবর্তী
-            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={handleNextClick}
+              className="flex-1 text-white font-bold py-3 px-6 rounded-lg transition-all flex items-center justify-center gap-2 group bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700"
+            >
+              পরবর্তী
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+            <span className="text-4xl text-white animate-bounce leading-none" aria-hidden="true">👈</span>
+          </div>
         </div>
 
         {/* Steps Section */}
@@ -302,6 +298,10 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      <footer className="border-t border-slate-700/50 bg-slate-900/70 px-4 py-5 text-center">
+        <p className="text-base md:text-lg text-slate-300">Inspired from সালামির পাতা.বাংলা</p>
+      </footer>
 
       {/* Bottom Sound Toggle (Mobile) */}
       <button
